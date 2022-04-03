@@ -42,9 +42,13 @@ task printGitProperties(dependsOn: 'generateGitProperties') { // make sure gener
 }
 
 bootJar {
-	manifest {
-		attributes(
-				'Build-Revision': "${-> project.ext.gitProps['git.commit.id.abbrev']}"  // Use GString lazy evaluation to delay until git properties are populated
-		)
-	}
+	enabled = true
+}
+
+jar {
+	enabled = true
+}
+
+springBoot {
+	mainClass = 'bank.service.account.App'
 }
