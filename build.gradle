@@ -42,6 +42,7 @@ task printGitProperties(dependsOn: 'generateGitProperties') { // make sure gener
 }
 
 bootJar {
+	enabled = false
 	manifest {
 		attributes(
 				'Build-Revision': "${-> project.ext.gitProps['git.commit.id.abbrev']}"  // Use GString lazy evaluation to delay until git properties are populated
